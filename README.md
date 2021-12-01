@@ -36,7 +36,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Ranjeet Singh**
+👤 **MOHAMED ELSHAMY**
 
 - GitHub: [@githubhandle](https://github.com/mohamedelshamy55)
 - Twitter: [@twitterhandle](https://mobile.twitter.com/moelshamy55)
