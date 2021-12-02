@@ -4,7 +4,8 @@
 
 ## Screenshots:
 
-![screenshot](https://github.com/mohamedelshamy55/To-Do-List/blob/master/screenshot.png)
+![screenshot](https://github.com/mohamedelshamy55/To-Do-List/blob/To-Do-list-interactive-list/screenshot.png)
+![screenshot](https://github.com/mohamedelshamy55/To-Do-List/blob/To-Do-list-interactive-list/screenshot2.png)
 
 Porject's features are added into seperate branch to keep main branch safe.
 
@@ -36,7 +37,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Mohamed Elshamy**
+👤 **MOHAMED ELSHAMY**
 
 - GitHub: [@githubhandle](https://github.com/mohamedelshamy55)
 - Twitter: [@twitterhandle](https://mobile.twitter.com/moelshamy55)
