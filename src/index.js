@@ -27,14 +27,14 @@ class TodoList {
         <button class='remove-btn'data-index=${item.index}>del</button>
       </div>
       `;
-     });
-     todos.innerHTML = htmlCode;
+      });
+      todos.innerHTML = htmlCode;
 
-     document.querySelectorAll('#boxes').forEach((item) => {
-       item.addEventListener('change', () => {
-         checkBoxEvent(item);
-       });
-     });
+      document.querySelectorAll('#boxes').forEach((item) => {
+        item.addEventListener('change', () => {
+          checkBoxEvent(item);
+        });
+      });
 
       document.querySelectorAll('.remove-btn').forEach((item) => {
         item.addEventListener('click', (e) => {
