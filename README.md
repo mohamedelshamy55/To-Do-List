@@ -15,9 +15,7 @@ Porject's features are added into seperate branch to keep main branch safe.
 - JavaScript
 - Webpack
 
-## Online live link
 
-[Visit project online](https://github.com/mohamedelshamy55/To-Do-List)
 
 ## Getting Started
 
