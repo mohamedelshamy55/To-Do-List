@@ -1,50 +1,72 @@
 import './style.css';
+import init from './utils/init.js';
+import checkBoxEvent from './utils/checkBoxEvent.js';
+import addTodo from './utils/addTodo.js';
+import clearAllCompleted from './utils/clearAllCompleted.js';
+import deleteTodo from './utils/deleteTodo.js';
+import updateTodo from './utils/updateTodo.js';
 
-const items = [
-  {
-    description: 'Doctor appointment at 10AM',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Visit friends home at 12PM',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Complete project for Microverse',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Take programming tutorials on udemy',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Dinner plan with family at hotel',
-    completed: false,
-    index: 4,
-  },
-];
+const todos = document.getElementById('todo-container');
+const inputField = document.getElementById('input-field');
 
-function displayTask() {
-  const container = document.querySelector('.list-container');
-  const list = document.createElement('ul');
+class TodoList {
+    constructor() {
+        this.list = [];
+    }
 
-  for (let i = 0; i < items.length; i += 1) {
-    const item = items[i];
-    const listItem = document.createElement('li');
-    listItem.className = 'list-item';
-    listItem.innerHTML = `<div class="item-conatiner"><i class="far fa-square"></i><p>${item.description}</p></div><hr>`;
-    list.appendChild(listItem);
-  }
+    static displayTodo = () => {
+        this.list = init(this.list);
+        let htmlCode = '';
+        this.list.forEach((item) => {
+            htmlCode += `
+      <div class='todo-item'>
+        <div class='left-items'>
+          <input id='boxes' type="checkbox" ${item.completed ? 'checked' : ''} data-index=${item.index}>
+          <p class='description' contenteditable=${!item.completed} data-index=${item.index}>${item.description}</p>
+        </div>
+        <button class='remove-btn'data-index=${item.index}>del</button>
+      </div>
+      `;
+        });
+        todos.innerHTML = htmlCode;
 
-  container.appendChild(list);
-  const clearElement = document.createElement('p');
-  clearElement.className = 'clear';
-  clearElement.innerText = 'Clear all completed';
-  container.appendChild(clearElement);
+        document.querySelectorAll('#boxes').forEach((item) => {
+            item.addEventListener('change', () => {
+                checkBoxEvent(item);
+            });
+        });
+
+        document.querySelectorAll('.remove-btn').forEach((item) => {
+            item.addEventListener('click', (e) => {
+                deleteTodo(e);
+                this.displayTodo();
+            });
+        });
+
+        document.querySelectorAll('.description').forEach((item) => {
+            item.addEventListener('input', (e) => {
+                updateTodo(e);
+            });
+        });
+    };
 }
 
-displayTask();
+inputField.addEventListener('keypress', (e) => {
+    const list = init(localStorage.getItem('todoList'));
+    if (e.key === 'Enter' && inputField.value) {
+        addTodo(list, inputField.value);
+        inputField.value = '';
+        TodoList.displayTodo();
+    }
+});
+
+const clearAllBtn = document.querySelector('.clear-all');
+
+clearAllBtn.addEventListener('click', () => {
+    clearAllCompleted();
+    TodoList.displayTodo();
+});
+
+window.addEventListener('load', () => {
+    TodoList.displayTodo();
+});
