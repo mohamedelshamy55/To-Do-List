@@ -18,7 +18,7 @@ Porject's features are added into seperate branch to keep main branch safe.
 
 ## Online live link
 
-[Visit project online](https://github.com/mohamedelshamy55/To-Do-List)
+[Visit project online](https://mohamedelshamy55.github.io/To-Do-List/)
 
 ## Getting Started
 
